@@ -1,0 +1,420 @@
+/* Широкие мониторы: ограничиваем длину строк и сохраняем воздух. */
+@media (min-width: 1600px) {
+  :root {
+    --container-width: 1320px;
+  }
+  .hero {
+    padding-top: 82px;
+  }
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr) 350px;
+    padding: 58px 0 82px;
+    gap: 75px;
+  }
+  h1 {
+    font-size: 80px;
+  }
+  .art-canvas {
+    min-height: 285px;
+  }
+  .about, .skills, .contacts {
+    padding: 116px 0;
+  }
+}
+
+/* Ноутбуки и планшеты в альбомной ориентации. */
+@media (max-width: 1199px) {
+  .container {
+    width: calc(100% - 64px);
+  }
+  .navigation {
+    gap: 22px;
+  }
+  .header-inner {
+    gap: 24px;
+  }
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 30px;
+  }
+  h1 {
+    font-size: 56px;
+  }
+  .art-canvas {
+    min-height: 235px;
+  }
+  .code-symbol {
+    font-size: 77px;
+  }
+  .section-layout {
+    gap: 48px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  .skill-card {
+    padding: 22px 18px;
+  }
+}
+
+/* Планшеты: карточки перестраиваются в две колонки. */
+@media (max-width: 991px) {
+  :root {
+    --header-height: 80px;
+  }
+  .header-inner {
+    gap: 18px;
+  }
+  .navigation {
+    gap: 16px;
+  }
+  .header-controls {
+    gap: 10px;
+  }
+  .hero {
+    padding-top: 48px;
+  }
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 24px;
+    padding: 36px 0 50px;
+  }
+  h1 {
+    font-size: 45px;
+  }
+  .hero-specialty {
+    font-size: 19px;
+  }
+  .hero-description {
+    font-size: 14px;
+  }
+  .art-top {
+    padding-inline: 12px;
+    font-size: 9px;
+  }
+  .art-canvas {
+    min-height: 213px;
+  }
+  .code-symbol {
+    font-size: 68px;
+  }
+  .art-caption {
+    font-size: 9px;
+  }
+  .about, .skills, .contacts {
+    padding: 76px 0;
+  }
+  .section-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 32px;
+  }
+  h2 {
+    font-size: 31px;
+  }
+  .about-content > .large-text {
+    font-size: 18px;
+  }
+  .education-card {
+    padding: 22px;
+  }
+  .education-card h3 {
+    font-size: 17px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .skill-card {
+    padding: 25px;
+  }
+  .contact-link {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+  .contact-value {
+    font-size: 14px;
+  }
+}
+
+/* Телефоны: навигация открыта без JS, все основные блоки в одну колонку. */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 122px;
+  }
+  .container {
+    width: calc(100% - 40px);
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0 16px;
+    padding-top: 10px;
+  }
+  .logo {
+    font-size: 27px;
+  }
+  .header-controls {
+    margin-left: auto;
+    gap: 4px;
+  }
+  .language-switch {
+    gap: 0;
+  }
+  .control-divider {
+    display: none;
+  }
+  .navigation {
+    order: 3;
+    justify-content: space-between;
+    flex-basis: 100%;
+    gap: 8px;
+    padding: 5px 0 7px;
+  }
+  /* Без JS остаётся открытая навигация. С JS шапка становится компактнее. */
+  :root.js-ready {
+    --header-height: 72px;
+  }
+  .js-ready .header-inner {
+    padding-top: 0;
+  }
+  .js-ready .navigation {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100svh - var(--header-height) - 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .js-ready .navigation.is-open {
+    display: flex;
+  }
+  .js-ready .navigation a {
+    padding: 10px 12px;
+    border-radius: 4px;
+  }
+  .js-ready .navigation a:hover {
+    background: var(--color-surface-hover);
+  }
+  .js-ready .navigation a:focus-visible {
+    outline-offset: -3px;
+  }
+  .hero {
+    padding-top: 39px;
+  }
+  .section-kicker {
+    letter-spacing: 0.12em;
+  }
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 31px 0 35px;
+    gap: 36px;
+  }
+  h1 {
+    font-size: clamp(37px, 8.6vw, 62px);
+  }
+  .hero-specialty {
+    margin-top: 25px;
+    font-size: 20px;
+  }
+  .hero-description {
+    max-width: 470px;
+    font-size: 14px;
+  }
+  .hero-actions {
+    margin-top: 26px;
+  }
+  .button {
+    padding-inline: 22px;
+  }
+  .code-art {
+    display: none;
+  }
+  .hero-bottom {
+    min-height: 69px;
+  }
+  .hero-bottom > span {
+    max-width: 170px;
+  }
+  .hero-bottom a {
+    gap: 10px;
+    text-align: right;
+  }
+  .about, .skills, .contacts {
+    padding: 58px 0;
+  }
+  .section-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 29px;
+  }
+  .section-number {
+    margin-bottom: 19px;
+  }
+  h2 {
+    font-size: 34px;
+  }
+  .muted-heading {
+    display: block;
+    margin-top: 3px;
+  }
+  .about .section-heading h2 {
+    max-width: 480px;
+  }
+  .about-content > .large-text {
+    font-size: 20px;
+  }
+  .about-content > p {
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .education-card {
+    margin-top: 26px;
+    padding: 23px;
+  }
+  .section-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-intro > p br {
+    display: none;
+  }
+  .skills-grid {
+    gap: 12px;
+  }
+  .skill-card {
+    padding: 22px;
+  }
+  .skill-card-top {
+    margin-bottom: 27px;
+  }
+  .skill-card h3 {
+    font-size: 21px;
+  }
+  .skill-card p br {
+    display: none;
+  }
+  .skill-category {
+    margin-top: 22px;
+  }
+  .contact-description {
+    margin-top: 20px;
+  }
+  .contact-link {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+  .contact-value {
+    font-size: 16px;
+  }
+  .footer-inner {
+    min-height: 90px;
+    gap: 16px;
+  }
+}
+
+/* Длинные слова в карточках должны помещаться и при читаемом шрифте 14px. */
+@media (max-width: 419px) {
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Компактные телефоны, включая 375px и 320px. */
+@media (max-width: 399px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+  .hero-specialty {
+    font-size: 18px;
+  }
+  .hero-actions {
+    gap: 10px;
+  }
+  .button {
+    flex: 1;
+    gap: 16px;
+    padding-inline: 14px;
+  }
+  .hero-bottom {
+    gap: 12px;
+  }
+  .hero-bottom > span {
+    max-width: 145px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .skill-card {
+    padding: 24px;
+  }
+  .skill-card-top {
+    margin-bottom: 22px;
+  }
+  .skill-category {
+    margin-top: 20px;
+  }
+  .education-card {
+    padding: 20px;
+  }
+  .contact-link {
+    padding: 16px 13px;
+    gap: 12px;
+  }
+  .contact-value {
+    font-size: 14px;
+  }
+  .contact-icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+  }
+  .contact-arrow {
+    font-size: 19px;
+  }
+  .footer-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 12px;
+    padding: 19px 0;
+  }
+  .site-footer p {
+    order: 3;
+    flex-basis: 100%;
+    margin-top: 7px;
+  }
+}
+
+/* Низкие экраны в альбомной ориентации: шапка не занимает весь экран. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header {
+    position: relative;
+  }
+  html {
+    scroll-padding-top: 20px;
+  }
+  .hero {
+    padding-top: 30px;
+  }
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 25px;
+    padding-bottom: 35px;
+  }
+  .code-art {
+    display: none;
+  }
+}
+
+/* Уважаем системную настройку уменьшения движения. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .button:hover, .skill-card:hover {
+    transform: none;
+  }
+}

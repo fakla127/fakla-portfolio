@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta data-i18n-content="metaDescription" name="description" content="Артём Бертенев / fakla — начинающий веб-разработчик. HTML, CSS, JavaScript и Python. Обо мне, технологии и контакты для связи.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0A0B10">
+  <title data-i18n="pageTitle">Артём Бертенев / fakla — Веб-разработка и Python</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+  <script src="js/translations.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home" data-i18n-aria-label="logoLabel" aria-label="fakla — на главную">fakla<span aria-hidden="true">.</span></a>
+
+      <nav class="navigation" id="navigation" data-i18n-aria-label="navigationLabel" aria-label="Основная навигация">
+        <a href="#home" data-i18n="navHome">Главная</a>
+        <a href="#about" data-i18n="navAbout">Обо мне</a>
+        <a href="#skills" data-i18n="navSkills">Навыки</a>
+        <a href="#contacts" data-i18n="navContacts">Контакты</a>
+      </nav>
+
+      <div class="header-controls">
+        <!-- JavaScript включит кнопки после восстановления настроек. -->
+        <div class="language-switch" role="group" data-i18n-aria-label="languageLabel" aria-label="Язык сайта">
+          <button class="language-button is-current" data-language="ru" data-i18n-aria-label="languageRussian" data-i18n-title="languageRussian" type="button" aria-pressed="true" disabled>RU</button>
+          <span aria-hidden="true">/</span>
+          <button class="language-button" data-language="en" data-i18n-aria-label="languageEnglish" data-i18n-title="languageEnglish" type="button" aria-pressed="false" disabled>EN</button>
+        </div>
+        <span class="control-divider" aria-hidden="true"></span>
+        <button class="theme-toggle" type="button" data-i18n-aria-label="themeToLight" data-i18n-title="themeToLight" aria-label="Включить светлую тему" disabled>
+          <img src="assets/sun.svg" width="19" height="19" alt="">
+        </button>
+        <!-- Без JS меню видно целиком. На телефонах кнопка управляет его раскрытием. -->
+        <button class="menu-toggle" data-i18n-aria-label="menuOpen" data-i18n-title="menuOpen" type="button" aria-label="Открыть меню" aria-controls="navigation" aria-expanded="false" hidden>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="section-kicker"><span class="small-line" aria-hidden="true"></span><span data-i18n="heroKicker">Персональное портфолио</span></div>
+
+        <div class="hero-layout">
+          <div class="hero-content">
+            <h1 id="hero-title"><span class="hero-name" data-i18n="heroName">Артём Бертенев</span><span class="hero-nickname"><span class="name-slash" aria-hidden="true">/ </span>fakla</span></h1>
+            <p class="hero-specialty"><span data-i18n="heroSpecialty">Веб-разработка</span> <span class="specialty-connector" data-i18n="and">и</span> Python</p>
+            <p class="hero-description" data-i18n="heroDescription">Изучаю программирование и создаю сайты. Стремлюсь писать аккуратный код и делать интерфейсы, которыми удобно пользоваться.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contacts"><span data-i18n="contactButton">Связаться</span> <span aria-hidden="true">↗</span></a>
+              <a class="button button-secondary" href="#about"><span data-i18n="aboutButton">Обо мне</span> <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+
+          <!-- Декоративная композиция создана без изображений и зависимостей. -->
+          <div class="code-art" aria-hidden="true">
+            <div class="art-top"><span class="art-dot"></span><span data-i18n="artDeveloper">fakla / разработчик</span><span>01</span></div>
+            <div class="art-canvas">
+              <div class="art-axis art-axis-horizontal"></div>
+              <div class="art-axis art-axis-vertical"></div>
+              <div class="code-symbol">&lt;<span>/</span>&gt;</div>
+              <span class="art-corner corner-top"></span>
+              <span class="art-corner corner-bottom"></span>
+              <span class="art-caption" data-i18n="artCaption">идея → код → интерфейс</span>
+            </div>
+            <div class="art-bottom"><span data-i18n="artWeb">ВЕБ</span><span class="art-plus">+</span><span>PYTHON</span></div>
+          </div>
+        </div>
+
+        <div class="hero-bottom"><span data-i18n="heroNote">Внимание к деталям. Интерес к разработке.</span><a href="#about"><span data-i18n="meetLink">Познакомимся ближе</span> <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p class="section-number" data-i18n="aboutSection">01 / Обо мне</p>
+          <h2 id="about-title"><span data-i18n="aboutLearn">Учусь.</span><br><span data-i18n="aboutPractice">Практикуюсь.</span><br><span class="muted-heading" data-i18n="aboutProgress">Двигаюсь дальше.</span></h2>
+        </div>
+        <div class="about-content">
+          <p class="large-text"><span data-i18n="aboutIntro">Привет! Я Артём, в сети — </span><span class="inline-nickname">fakla</span><span data-i18n="aboutIntroEnd">. Изучаю веб-разработку и Python.</span></p>
+          <p data-i18n="aboutApproach">Мне интересно разбираться, как устроены сайты: от структуры страницы до поведения интерфейса. В процессе обучения уделяю внимание понятному коду, адаптивной вёрстке и удобству для пользователя.</p>
+          <p data-i18n="aboutGoals">Сейчас закладываю основу и применяю новые знания на практике. Хочу развиваться в разработке и постепенно переходить к реальным задачам.</p>
+          <div class="education-card">
+            <div class="education-top">
+              <span class="eyebrow" data-i18n="educationLabel">Образование</span>
+              <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-i18n="educationStatus">Учусь сейчас</span></span>
+            </div>
+            <h3 data-i18n="educationUniversity">РГПУ им. А. И. Герцена</h3>
+            <p data-i18n="educationProgram">Информационные системы и технологии</p>
+            <div class="education-meta">
+              <span data-i18n="educationDegree">Бакалавриат</span>
+              <span aria-hidden="true">/</span>
+              <span>09.03.02</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <p class="section-number" data-i18n="skillsSection">02 / Навыки</p>
+            <h2 id="skills-title"><span data-i18n="skillsTitle">Мой набор технологий</span><span class="accent-text">.</span></h2>
+          </div>
+          <p><span data-i18n="skillsIntro">То, что изучаю</span><br> <span data-i18n="skillsIntroEnd">и использую на практике.</span></p>
+        </div>
+        <ul class="skills-grid">
+          <li class="skill-card">
+            <div class="skill-card-top">
+              <span class="technology-icon html-icon" aria-hidden="true">&lt;/&gt;</span>
+              <span class="skill-index">01</span>
+            </div>
+            <h3>HTML5</h3>
+            <p><span data-i18n="htmlDescription">Структура и семантика</span><br> <span data-i18n="htmlDescriptionEnd">веб-страниц</span></p>
+            <span class="skill-category" data-i18n="htmlCategory">Разметка</span>
+          </li>
+          <li class="skill-card">
+            <div class="skill-card-top">
+              <span class="technology-icon css-icon" aria-hidden="true">{ }</span>
+              <span class="skill-index">02</span>
+            </div>
+            <h3>CSS3</h3>
+            <p><span data-i18n="cssDescription">Оформление</span><br> <span data-i18n="cssDescriptionEnd">и адаптивная вёрстка</span></p>
+            <span class="skill-category" data-i18n="cssCategory">Стили</span>
+          </li>
+          <li class="skill-card">
+            <div class="skill-card-top">
+              <span class="technology-icon js-icon" aria-hidden="true">JS</span>
+              <span class="skill-index">03</span>
+            </div>
+            <h3>JavaScript</h3>
+            <p><span data-i18n="jsDescription">Логика и взаимодействие</span><br> <span data-i18n="jsDescriptionEnd">с интерфейсом</span></p>
+            <span class="skill-category" data-i18n="jsCategory">Веб-разработка</span>
+          </li>
+          <li class="skill-card">
+            <div class="skill-card-top">
+              <span class="technology-icon python-icon" aria-hidden="true">Py</span>
+              <span class="skill-index">04</span>
+            </div>
+            <h3>Python</h3>
+            <p><span data-i18n="pythonDescription">Основы программирования</span><br> <span data-i18n="pythonDescriptionEnd">и работа с данными</span></p>
+            <span class="skill-category" data-i18n="pythonCategory">Программирование</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contacts section" id="contacts" aria-labelledby="contacts-title">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p class="section-number" data-i18n="contactsSection">03 / Контакты</p>
+          <h2 id="contacts-title"><span data-i18n="contactsTitle">Давайте</span><br><span class="accent-text" data-i18n="contactsTitleEnd">будем на связи.</span></h2>
+          <p class="contact-description"><span data-i18n="contactsDescription">Есть идея или хотите познакомиться?</span><br> <span data-i18n="contactsDescriptionEnd">Напишите мне — обсудим.</span></p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="https://t.me/fakla" target="_blank" rel="noopener noreferrer"
+             data-i18n-aria-label="telegramLabel" aria-label="Telegram: @fakla (откроется в новой вкладке)">
+            <span class="contact-icon"><img src="assets/telegram.svg" width="23" height="23" alt=""></span>
+            <span class="contact-details">
+              <span class="contact-label">Telegram</span>
+              <span class="contact-value">@fakla</span>
+            </span>
+            <span class="contact-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="contact-link" href="https://github.com/fakla127" target="_blank" rel="noopener noreferrer"
+             data-i18n-aria-label="githubLabel" aria-label="GitHub: fakla127 (откроется в новой вкладке)">
+            <span class="contact-icon"><img src="assets/github.svg" width="23" height="23" alt=""></span>
+            <span class="contact-details">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">fakla127</span>
+            </span>
+            <span class="contact-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="contact-link" href="mailto:fakla12312@gmail.com">
+            <span class="contact-icon"><img src="assets/mail.svg" width="23" height="23" alt=""></span>
+            <span class="contact-details">
+              <span class="contact-label" data-i18n="emailLabel">Электронная почта</span>
+              <span class="contact-value">fakla12312@gmail.com</span>
+            </span>
+            <span class="contact-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#home" data-i18n-aria-label="logoLabel" aria-label="fakla — на главную">fakla<span aria-hidden="true">.</span></a>
+      <p data-i18n="footerCopyright">© 2026 Артём Бертенев</p>
+      <a class="back-to-top" href="#home"><span data-i18n="backToTop">Наверх</span> <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</body>
+</html>

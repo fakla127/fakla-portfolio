@@ -1,0 +1,826 @@
+/* Цвета и общие настройки. Светлая тема включается через data-theme="light". */
+:root {
+  color-scheme: dark;
+  --color-background: #0a0b10;
+  --color-surface: #101219;
+  --color-surface-hover: #171923;
+  --color-text: #f5f6fa;
+  --color-muted: #9b9fad;
+  --color-faint: #828899;
+  --color-border: #252833;
+  --color-accent: #8055e9;
+  --color-accent-text: #ad8cff;
+  --color-accent-hover: #7043d6;
+  --color-blue: #38bdf8;
+  --color-header: rgba(10, 11, 16, 0.96);
+  --color-button-text: #ffffff;
+  --container-width: 1240px;
+  --header-height: 88px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --color-background: #f7f8fc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #eef0f7;
+  --color-text: #171923;
+  --color-muted: #5d6373;
+  --color-faint: #686e7d;
+  --color-border: #d9dde8;
+  --color-accent-text: #6c3dc9;
+  --color-blue: #087eae;
+  --color-header: rgba(247, 248, 252, 0.96);
+}
+
+/* Базовые элементы и доступность. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 24px);
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 6px;
+  border-radius: 3px;
+}
+
+.container {
+  width: min(var(--container-width), calc(100% - 96px));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  padding: 12px 20px;
+  background: var(--color-text);
+  color: var(--color-background);
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.accent-text {
+  color: var(--color-accent-text);
+}
+
+.section {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-number, .eyebrow {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-number {
+  margin-bottom: 26px;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.22;
+}
+
+
+/* Прилипающая шапка. Ник нигде не получает text-transform. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 29px;
+  font-weight: 750;
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+.logo span {
+  color: var(--color-accent-text);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navigation a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-muted);
+  font-size: 13px;
+  transition: color 180ms ease;
+}
+
+.navigation a:hover {
+  color: var(--color-text);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--color-faint);
+  font-size: 12px;
+}
+
+.language-button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-faint);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.language-button.is-current {
+  color: var(--color-text);
+}
+
+.language-button:hover {
+  color: var(--color-accent-text);
+}
+
+.control-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--color-border);
+}
+
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.theme-toggle:hover, .menu-toggle:hover {
+  border-color: var(--color-faint);
+  background: var(--color-surface-hover);
+}
+
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+}
+
+.menu-toggle span {
+  display: block;
+  height: 1px;
+  margin: 5px 0;
+  background: var(--color-text);
+  transition: transform 160ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+
+/* Первый экран: имя и ник используют одинаковый размер шрифта. */
+.hero {
+  padding: 66px 0 0;
+}
+
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-muted);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.small-line {
+  width: 26px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: center;
+  gap: 42px;
+  padding: 43px 0 65px;
+}
+
+h1 {
+  font-size: clamp(44px, 5.2vw, 74px);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+
+.hero-name, .hero-nickname {
+  display: block;
+}
+
+.hero-nickname {
+  margin-top: 4px;
+  color: var(--color-accent-text);
+}
+
+.name-slash {
+  color: var(--color-faint);
+  font-weight: 350;
+}
+
+.hero-specialty {
+  margin-top: 29px;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.hero-specialty .specialty-connector {
+  padding: 0 4px;
+  color: var(--color-muted);
+}
+
+.hero-description {
+  max-width: 490px;
+  margin-top: 15px;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 31px;
+  min-height: 50px;
+  padding: 12px 23px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button span[aria-hidden] {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.button-primary {
+  background: var(--color-accent);
+  color: var(--color-button-text);
+}
+
+.button-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.button-secondary {
+  border-color: var(--color-border);
+}
+
+.button-secondary:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-faint);
+}
+
+.hero-bottom {
+  min-height: 70px;
+  padding-block: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-faint);
+  font-size: 12px;
+}
+
+.hero-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 44px;
+  color: var(--color-muted);
+}
+
+.hero-bottom a:hover {
+  color: var(--color-text);
+}
+
+
+/* Небольшая графическая композиция из текста и CSS. */
+.code-art {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  overflow: hidden;
+  transform: translateY(9px);
+}
+
+.art-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 17px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font: 10px/1.5 Consolas, monospace;
+}
+
+.art-top > :last-child {
+  margin-left: auto;
+  color: var(--color-faint);
+}
+
+.art-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent-text);
+}
+
+.art-canvas {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 258px;
+}
+
+.art-axis {
+  position: absolute;
+  background: var(--color-border);
+  opacity: 0.55;
+}
+
+.art-axis-horizontal {
+  width: 100%;
+  height: 1px;
+  top: 43%;
+}
+
+.art-axis-vertical {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+.code-symbol {
+  z-index: 1;
+  padding-bottom: 33px;
+  color: var(--color-text);
+  font: 600 87px/1 Consolas, monospace;
+  letter-spacing: -0.14em;
+}
+
+.code-symbol span {
+  color: var(--color-accent-text);
+}
+
+.art-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+}
+
+.corner-top {
+  top: 23px;
+  left: 23px;
+  border-top: 1px solid var(--color-faint);
+  border-left: 1px solid var(--color-faint);
+}
+
+.corner-bottom {
+  bottom: 25px;
+  right: 23px;
+  border-bottom: 1px solid var(--color-faint);
+  border-right: 1px solid var(--color-faint);
+}
+
+.art-caption {
+  position: absolute;
+  bottom: 31px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font: 10px/1.5 Consolas, monospace;
+}
+
+.art-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  padding: 0 18px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font: 10px/1 Consolas, monospace;
+  letter-spacing: 0.08em;
+}
+
+.art-plus {
+  color: var(--color-blue);
+  font-size: 15px;
+}
+
+
+/* Секции и карточка образования. */
+.about, .skills, .contacts {
+  padding: 100px 0;
+}
+
+.section-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 90px;
+}
+
+.muted-heading {
+  color: var(--color-faint);
+}
+
+.about-content {
+  padding-top: 2px;
+}
+
+.about-content > p {
+  margin-bottom: 20px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.about-content > .large-text {
+  color: var(--color-text);
+  font-size: 21px;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+}
+
+.inline-nickname {
+  color: var(--color-accent-text);
+}
+
+.education-card {
+  margin-top: 32px;
+  padding: 25px 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+
+.education-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-blue);
+}
+
+.education-card h3 {
+  font-size: 18px;
+  font-weight: 550;
+  letter-spacing: -0.025em;
+}
+
+.education-card > p {
+  margin-top: 8px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.education-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 19px;
+  color: var(--color-faint);
+  font-size: 12px;
+}
+
+.section-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 41px;
+}
+
+.section-intro > p {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skill-card {
+  padding: 26px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.skill-card:hover {
+  border-color: var(--color-faint);
+  transform: translateY(-4px);
+}
+
+.skill-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.technology-icon {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font: 600 18px/1 Consolas, monospace;
+  letter-spacing: -0.06em;
+}
+
+.html-icon, .js-icon {
+  color: var(--color-accent-text);
+}
+
+.css-icon, .python-icon {
+  color: var(--color-blue);
+}
+
+.skill-index {
+  padding-top: 4px;
+  color: var(--color-faint);
+  font: 12px/1.5 Consolas, monospace;
+}
+
+.skill-card h3 {
+  margin-bottom: 11px;
+  font-size: 22px;
+  font-weight: 550;
+  letter-spacing: -0.04em;
+}
+
+.skill-card p {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.skill-category {
+  display: block;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-faint);
+  font-size: 12px;
+}
+
+
+/* Настоящие контактные ссылки, без формы и внешних сервисов. */
+.contact-description {
+  margin-top: 25px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 23px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.contact-link:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-faint);
+}
+
+.contact-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-label {
+  margin-bottom: 2px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.contact-value {
+  font-size: 16px;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  color: var(--color-faint);
+  font-size: 22px;
+}
+
+.contact-link:hover .contact-arrow {
+  color: var(--color-accent-text);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 100px;
+}
+
+.site-footer .logo {
+  font-size: 24px;
+}
+
+.site-footer p {
+  color: var(--color-faint);
+  font-size: 12px;
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.back-to-top:hover {
+  color: var(--color-text);
+}
+
+/* Короткий переход цвета без анимации размеров и положения блоков. */
+.theme-ready body, .theme-ready .site-header, .theme-ready .code-art,
+.theme-ready .education-card, .theme-ready .skill-card, .theme-ready .contact-link,
+.theme-ready .button, .theme-ready .theme-toggle, .theme-ready .menu-toggle {
+  transition: background-color 160ms ease, color 160ms ease,
+    border-color 160ms ease, transform 180ms ease;
+}
