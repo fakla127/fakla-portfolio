@@ -1,4 +1,3 @@
-/* Широкие мониторы: ограничиваем длину строк и сохраняем воздух. */
 @media (min-width: 1600px) {
   :root {
     --container-width: 1320px;
@@ -22,7 +21,6 @@
   }
 }
 
-/* Ноутбуки и планшеты в альбомной ориентации. */
 @media (max-width: 1199px) {
   .container {
     width: calc(100% - 64px);
@@ -57,7 +55,6 @@
   }
 }
 
-/* Планшеты: карточки перестраиваются в две колонки. */
 @media (max-width: 991px) {
   :root {
     --header-height: 80px;
@@ -135,7 +132,6 @@
   }
 }
 
-/* Телефоны: навигация открыта без JS, все основные блоки в одну колонку. */
 @media (max-width: 767px) {
   :root {
     --header-height: 122px;
@@ -168,7 +164,6 @@
     gap: 8px;
     padding: 5px 0 7px;
   }
-  /* Без JS остаётся открытая навигация. С JS шапка становится компактнее. */
   :root.js-ready {
     --header-height: 72px;
   }
@@ -312,14 +307,12 @@
   }
 }
 
-/* Длинные слова в карточках должны помещаться и при читаемом шрифте 14px. */
 @media (max-width: 419px) {
   .skills-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-/* Компактные телефоны, включая 375px и 320px. */
 @media (max-width: 399px) {
   .container {
     width: calc(100% - 32px);
@@ -384,7 +377,6 @@
   }
 }
 
-/* Низкие экраны в альбомной ориентации: шапка не занимает весь экран. */
 @media (max-height: 500px) and (orientation: landscape) {
   .site-header {
     position: relative;
@@ -405,7 +397,7 @@
   }
 }
 
-/* Уважаем системную настройку уменьшения движения. */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

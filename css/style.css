@@ -32,7 +32,6 @@
   --color-header: rgba(247, 248, 252, 0.96);
 }
 
-/* Базовые элементы и доступность. */
 * {
   box-sizing: border-box;
 }
@@ -149,7 +148,6 @@ h2 {
 }
 
 
-/* Прилипающая шапка. Ник нигде не получает text-transform. */
 .site-header {
   position: sticky;
   top: 0;
@@ -280,7 +278,6 @@ h2 {
 }
 
 
-/* Первый экран: имя и ник используют одинаковый размер шрифта. */
 .hero {
   padding: 66px 0 0;
 }
@@ -421,8 +418,6 @@ h1 {
   color: var(--color-text);
 }
 
-
-/* Небольшая графическая композиция из текста и CSS. */
 .code-art {
   border: 1px solid var(--color-border);
   border-radius: 8px;
@@ -537,7 +532,6 @@ h1 {
 }
 
 
-/* Секции и карточка образования. */
 .about, .skills, .contacts {
   padding: 100px 0;
 }
@@ -719,7 +713,6 @@ h1 {
 }
 
 
-/* Настоящие контактные ссылки, без формы и внешних сервисов. */
 .contact-description {
   margin-top: 25px;
   color: var(--color-muted);
@@ -817,7 +810,6 @@ h1 {
   color: var(--color-text);
 }
 
-/* Короткий переход цвета без анимации размеров и положения блоков. */
 .theme-ready body, .theme-ready .site-header, .theme-ready .code-art,
 .theme-ready .education-card, .theme-ready .skill-card, .theme-ready .contact-link,
 .theme-ready .button, .theme-ready .theme-toggle, .theme-ready .menu-toggle {

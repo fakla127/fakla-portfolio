@@ -12,7 +12,6 @@ const systemDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
 let currentLanguage = "ru";
 let selectedTheme = readPreference("fakla-theme");
 
-// Браузер может запрещать хранилище. Сайт продолжит работать без сохранения.
 function readPreference(key) {
   try {
     return localStorage.getItem(key);
@@ -25,11 +24,9 @@ function savePreference(key, value) {
   try {
     localStorage.setItem(key, value);
   } catch {
-    // Текущий выбор уже применён, даже если его нельзя сохранить.
   }
 }
 
-// Меняем только текст внутри отмеченных элементов, сохраняя соседние иконки.
 function translatePage() {
   const texts = translations[currentLanguage];
 
@@ -37,7 +34,6 @@ function translatePage() {
     element.textContent = texts[element.dataset.i18n];
   });
 
-  // Метаданные, доступные названия и подсказки переводятся тем же словарём.
   ["aria-label", "title", "content"].forEach(function (attribute) {
     const dataAttribute = "data-i18n-" + attribute;
 
@@ -115,7 +111,6 @@ function handleEscape(event) {
 
 function handleAnchorClick(event) {
   if (event.target.closest('a[href^="#"]')) {
-    // Закрываем меню до штатного перехода: высота шапки сразу станет обычной.
     closeMenu();
   }
 }
@@ -164,13 +159,11 @@ function initializeSite() {
   root.classList.add("js-ready");
   updateMenuForScreen();
 
-  // Без JS навигация остаётся открытой, а неработающие кнопки — отключёнными.
   languageButtons.forEach(function (button) {
     button.disabled = false;
   });
   themeButton.disabled = false;
 
-  // Цвета анимируются только после установки начальной темы.
   requestAnimationFrame(function () {
     root.classList.add("theme-ready");
   });

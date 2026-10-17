@@ -1,11 +1,9 @@
 "use strict";
 
-// Замените имя здесь, когда будет известно официальное английское написание.
 const portfolioConfig = {
   englishName: "Artyom Bertenev"
 };
 
-// Ключи совпадают с data-i18n в HTML. Разметка и иконки не хранятся в переводах.
 const translations = {
   ru: {
     pageTitle: "Артём Бертенев / fakla — Веб-разработка и Python",
